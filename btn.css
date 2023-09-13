@@ -1,44 +1,53 @@
+/* Importing external CSS files */
 @import url(https://unpkg.com/open-props/open-props.min.css);
 @import url(https://unpkg.com/open-props/normalize.min.css);
 
+/* Global box-sizing set to border-box for all elements */
 * {
   box-sizing: border-box;
 }
 
+/* Styling for the body element */
 body {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  background: var(--gray-12);
+  background: var(--gray-12); /* Background color using a CSS custom variable */
 }
 
+/* Styling for unordered list elements */
 ul {
   padding: 0;
   display: inline-grid;
   grid-auto-flow: column;
   list-style-type: none;
   grid-template-columns: auto repeat(5, calc((var(--active, 0) * 130px) + 10px));
-  transition: grid-template-columns 0.35s var(--ease-elastic-1);
+  transition: grid-template-columns 0.35s var(--ease-elastic-1); /* Animation transition property */
 }
 
+/* Styling for main content */
 main {
   width: 66ch;
 }
 
+/* Styling for list items */
 li {
   display: grid;
   justify-content: end;
-  z-index: calc(var(--count) - var(--index));
+  z-index: calc(var(--count) - var(--index)); /* Calculated z-index value */
 }
 
+/* Styling for list items when parent ul element is focused or hovered */
 ul:is(:focus-within, :hover) li {
-  justify-content: space-around;
+  justify-content: space-around; /* Change justification when parent is focused or hovered */
 }
 
+/* Styling for navigation elements */
 nav {
   position: relative;
 }
 
+/* Styling for buttons within navigation */
 nav > button {
   position: absolute;
   left: 0;
@@ -46,29 +55,33 @@ nav > button {
   z-index: var(--count);
 }
 
+/* Styling for anchor (link) elements */
 a {
-  background: hsl(0 0% 60% / 0.18);
+  background: hsl(0 0% 60% / 0.18); /* Background color with HSLA format */
   display: inline-block;
-  padding: var(--size-2) var(--size-4);
-  border-radius: var(--radius-5);
+  padding: var(--size-2) var(--size-4); 
+  border-radius: var(--radius-5); 
   margin: 0;
   color: var(--gray-0);
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-0);
-  backdrop-filter: blur(40px);
-  transition: color 0.2s, background 0.2s;  
+  backdrop-filter: blur(40px); /* Apply a backdrop filter with blur effect */
+  transition: color 0.2s, background 0.2s; /* Transition effect for color and background */
 }
 
+/* Styling for visited anchor elements */
 a:visited {
-  color: var(--gray-0);
+  color: var(--gray-0); /* Text color for visited links */
 }
 
+/* Styling for SVG elements */
 svg {
   height: 24px;
-  aspect-ratio: 1;
-  fill: currentColor;
+  aspect-ratio: 1; /* Maintain aspect ratio */
+  fill: currentColor; /* Fill color using current text color */
 }
 
+/* Styling for span elements */
 span {
   display: grid;
   align-items: center;
@@ -77,29 +90,33 @@ span {
   gap: 0.25rem;
 }
 
+/* Conditional styling for specific list items */
 li:is(
   :nth-of-type(2),
   :nth-of-type(3),
   :nth-of-type(4),
   :nth-of-type(5)
 ) span {
-  opacity: var(--active, 0);
+  opacity: var(--active, 0); /* Opacity using CSS custom variable */
 }
 
+/* Conditional styling for specific list items on hover or focus */
 li:is(
   :nth-of-type(2),
   :nth-of-type(3),
   :nth-of-type(4),
   :nth-of-type(5)
 ) a:is(:hover, :focus) {
-  background: var(--gray-0);
-  color: var(--gray-12);
+  background: var(--gray-0); /* Background color on hover or focus */
+  color: var(--gray-12); /* Text color on hover or focus */
 }
 
+/* Styling for anchor elements with visible focus */
 a:focus-visible {
-  outline-color: transparent;
+  outline-color: transparent; /* Set focus outline color to transparent */
 }
 
+/* Conditional styling for the parent ul element when focused or hovered */
 ul:is(:focus-within, :hover) {
-  --active: 1;
+  --active: 1; /* Set CSS custom variable to 1 when parent is focused or hovered */
 }
